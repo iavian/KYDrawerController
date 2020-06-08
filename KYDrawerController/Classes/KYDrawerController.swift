@@ -233,7 +233,7 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
             }
 
             _drawerWidthConstraint = NSLayoutConstraint(
-                item: drawerViewController.view,
+                item: drawerViewController.view as Any,
                 attribute: NSLayoutConstraint.Attribute.width,
                 relatedBy: NSLayoutConstraint.Relation.equal,
                 toItem: nil,
@@ -244,7 +244,7 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
             drawerViewController.view.addConstraint(_drawerWidthConstraint)
             
             _drawerConstraint = NSLayoutConstraint(
-                item: drawerViewController.view,
+                item: drawerViewController.view as Any,
                 attribute: itemAttribute,
                 relatedBy: NSLayoutConstraint.Relation.equal,
                 toItem: _containerView,
@@ -408,7 +408,7 @@ open class KYDrawerController: UIViewController, UIGestureRecognizerDelegate {
                 if let didChangeState = self.delegate?.drawerController(_:didChangeState:) {
                     didChangeState(self, state)
                 } else {
-                    self.delegate?.drawerController?(self, stateChanged: state)
+                    self.delegate?.drawerController?(self, didChangeState: state)
                 }
         }
     }
